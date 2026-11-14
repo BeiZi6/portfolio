@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="徐元山（Xu Yuanshan），哈尔滨工业大学电子信息专业研究生。AI 工程与一线交付工程（FDE）：Agents、LLM 网关与 AI Infra，以及面向 AI 的开发者工具。">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#061219">
+  <link rel="icon" href="favicon.ico">
+  <title>徐元山 · Xu Yuanshan</title>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Geist+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@900&amp;display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      var rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var seen = false;
+      try { seen = sessionStorage.getItem("xys-intro") === "1"; } catch (e) {}
+      d.classList.add("js");
+      if (!rm) d.classList.add("pre-reveal");
+      if (!rm && !seen) d.classList.add("intro-on", "intro-hide");
+      // fail open if scripts never arrive
+      setTimeout(function () { d.classList.remove("pre-reveal", "intro-hide"); if (!window.__folio) d.classList.remove("intro-on"); }, 5000);
+    })();
+  </script>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <div class="intro" id="intro">
+    <p class="intro-meta" aria-hidden="true"><span class="intro-count" id="intro-count">000</span><span class="intro-label">徐元山 · 作品集</span></p>
+    <button type="button" class="intro-skip" id="intro-skip">跳过开场</button>
+  </div>
+
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor-ring"><span class="cursor-label"></span></div>
+    <div class="cursor-dot"></div>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top">徐元山</a>
+    <nav class="site-nav" aria-label="页面分区">
+      <a class="ul magnetic" href="#work">项目</a>
+      <a class="ul magnetic" href="#skills">技能</a>
+      <a class="ul magnetic" href="#about">教育</a>
+      <a class="ul magnetic" href="#contact">联系</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="identity">
+      <canvas id="hero-field" aria-hidden="true"></canvas>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="hero-role">哈尔滨工业大学 · 电子信息 研究生 · <span class="nowrap">AI 工程 / FDE</span></p>
+        <h1 id="identity">
+          <span class="hero-name">徐元山</span>
+          <span class="hero-latin">Xu Yuanshan</span>
+        </h1>
+        <p class="hero-lede">做 <span class="nowrap">Agents</span>、<span class="nowrap">LLM 网关与 AI Infra</span>，以及面向 AI 的开发者工具。</p>
+      </div>
+      <a class="hero-scroll ul magnetic" href="#story"><span class="hero-scroll-line" aria-hidden="true"></span>滚动</a>
+    </section>
+
+    <section id="story" class="story" aria-labelledby="story-heading">
+      <h2 id="story-heading" class="visually-hidden">一条请求的路径</h2>
+      <div class="story-pin">
+        <canvas id="story-field" aria-hidden="true"></canvas>
+        <div class="story-shade" aria-hidden="true"></div>
+        <div class="story-copy">
+          <article class="story-step is-active" data-step="0">
+            <p class="story-kicker">从一次调用开始</p>
+            <p class="story-word">Request</p>
+            <p class="story-text">一次请求从编辑器发出，带着模型名、上下文和<span class="nowrap">工具列表</span>。</p>
+          </article>
+          <article class="story-step" data-step="1">
+            <p class="story-kicker">CSwitch</p>
+            <p class="story-word">Gateway</p>
+            <p class="story-text">本地把 Anthropic 兼容协议接到第三方模型，做映射，并隔离数据目录。</p>
+          </article>
+          <article class="story-step" data-step="2">
+            <p class="story-kicker">流式返回</p>
+            <p class="story-word">Models</p>
+            <p class="story-text">回复以 token 流回来。网关保持会话连续，不把运行时绑死在<span class="nowrap">一家供应商</span>上。</p>
+          </article>
+          <article class="story-step" data-step="3">
+            <p class="story-kicker">kero-web</p>
+            <p class="story-word">Agent</p>
+            <p class="story-text">主会话把工作派给子会话，带回进度、等待、就绪、受阻或失败的结构化报告，在同一张网上监管多个 Claude Code / Codex 会话。</p>
+          </article>
+          <article class="story-step" data-step="4">
+            <p class="story-kicker">otty-rs</p>
+            <p class="story-word">Terminal</p>
+            <p class="story-text">面向 agent 工作流的终端：生命周期、<span class="nowrap">会话恢复</span>，Rust 引擎，<span class="nowrap">Electron 界面</span>。</p>
+          </article>
+        </div>
+        <div class="story-rail" aria-hidden="true">
+          <div class="story-rail-track"><span class="story-rail-fill"></span></div>
+          <ol class="story-rail-list">
+            <li><span>01</span>Request</li>
+            <li><span>02</span>Gateway</li>
+            <li><span>03</span>Models</li>
+            <li><span>04</span>Agent</li>
+            <li><span>05</span>Terminal</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="work" aria-labelledby="work-heading">
+      <header class="section-head wrap">
+        <h2 id="work-heading" class="reveal-title">项目</h2>
+        <p class="section-count">五件在做的事</p>
+      </header>
+
+      <div class="work-desktop" aria-hidden="false">
+        <div class="work-sticky wrap">
+          <ul class="work-index" role="list" aria-label="项目列表">
+            <li class="work-indicator" aria-hidden="true" role="presentation"></li>
+            <li><button type="button" class="work-name is-active" data-index="0" aria-current="true">gpu-ncc-matcher</button></li>
+            <li><button type="button" class="work-name" data-index="1">MyClaude</button></li>
+            <li><button type="button" class="work-name" data-index="2">kero-web</button></li>
+            <li><button type="button" class="work-name" data-index="3">otty-rs</button></li>
+            <li><button type="button" class="work-name" data-index="4">CSwitch</button></li>
+          </ul>
+          <div class="work-stage">
+            <div class="work-frame" id="work-frame">
+              <div class="work-media" id="work-media" data-cursor="查看">
+                <div class="wm-layer is-in"><div class="wm-par"><img src="previews/gpu-ncc-matcher.png" alt="" width="1280" height="800" decoding="async"></div></div>
+              </div>
+              <p class="work-counter" aria-hidden="true"><span class="work-counter-num" id="work-counter">01</span> / 05</p>
+            </div>
+            <div class="work-meta">
+              <p class="work-year" id="work-year"><time datetime="2026">2026</time></p>
+              <p class="work-desc" id="work-desc">CUDA 上的 GPU 加速归一化互相关（NCC）匹配，采用由粗到精的模板搜索。</p>
+              <p class="work-tags" id="work-tags">CUDA</p>
+              <a class="work-link ul" id="work-link" href="https://github.com/BeiZi6/gpu-ncc-matcher" rel="noopener noreferrer">在 GitHub 上看</a>
+              <span class="work-private" id="work-private" hidden>未开源</span>
+            </div>
+          </div>
+        </div>
+        <div class="work-spines" aria-hidden="true">
+          <div class="work-spine" id="work-0"></div>
+          <div class="work-spine" id="work-1"></div>
+          <div class="work-spine" id="work-2"></div>
+          <div class="work-spine" id="work-3"></div>
+          <div class="work-spine" id="work-4"></div>
+        </div>
+      </div>
+
+      <ul class="work-cards wrap" role="list">
+        <li>
+          <a class="work-card" href="https://github.com/BeiZi6/gpu-ncc-matcher" rel="noopener noreferrer">
+            <img src="previews/gpu-ncc-matcher.png" alt="" width="1280" height="800" decoding="async">
+            <p class="work-year">2026 · CUDA</p>
+            <h3>gpu-ncc-matcher</h3>
+            <p>CUDA 上的 GPU 加速归一化互相关（NCC）匹配，采用由粗到精的模板搜索。</p>
+          </a>
+        </li>
+        <li>
+          <a class="work-card" href="https://github.com/BeiZi6/MyClaude" rel="noopener noreferrer">
+            <img src="previews/myclaude.png" alt="" width="1280" height="800" decoding="async">
+            <p class="work-year">2026 · Agents</p>
+            <h3>MyClaude</h3>
+            <p>开箱即用的 Claude Code 隔离工作台：在 macOS / Windows / Linux 虚拟机里跑 Claude，网络代理、时区语言指纹和环境检查集中管理，支持多账号、手机接续和 VPS 部署。</p>
+          </a>
+        </li>
+        <li class="work-card work-card-private">
+          <img src="previews/kero-web.png" alt="" width="1280" height="800" decoding="async">
+          <p class="work-year">2026 · Agents · 未开源</p>
+          <h3>kero-web</h3>
+          <p>给 Kero 做的手机端遥控：经 Tailscale 在 iPhone / iPad / Mac 上监管和调度多个 Claude Code / Codex 会话，支持主会话派活、审批队列和推送。</p>
+        </li>
+        <li>
+          <a class="work-card" href="https://github.com/BeiZi6/otty-rs" rel="noopener noreferrer">
+            <img src="previews/otty-rs.png" alt="" width="1280" height="800" decoding="async">
+            <p class="work-year">2026 · Agents</p>
+            <h3>otty-rs</h3>
+            <p>从零开始的跨平台 Otty 终端重写，Rust 引擎与 Electron 界面，面向 coding-agent 工作流（hooks、生命周期与会话恢复）。</p>
+          </a>
+        </li>
+        <li>
+          <a class="work-card" href="https://github.com/BeiZi6/CSwitch" rel="noopener noreferrer">
+            <img src="previews/cswitch.png" alt="" width="1280" height="800" decoding="async">
+            <p class="work-year">2026 · Infra</p>
+            <h3>CSwitch</h3>
+            <p>本地 Anthropic 兼容网关：把第三方模型 API 接入 Claude Code，支持模型映射、一键启动和隔离数据目录。</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills" class="skills wrap" aria-labelledby="skills-heading">
+      <header class="section-head">
+        <h2 id="skills-heading" class="reveal-title">技能</h2>
+      </header>
+      <ul class="skill-wall" role="list">
+        <li>
+          <p class="skill-label">LLM 网关 / Infra</p>
+          <p class="skill-display">网关 · 映射 · 隔离运行时</p>
+          <p class="skill-note">本地 Anthropic 兼容网关，第三方推理接入，模型映射与隔离环境</p>
+        </li>
+        <li>
+          <p class="skill-label">Agents</p>
+          <p class="skill-display">MCP · Skills · Hooks</p>
+          <p class="skill-note">Claude Code，隔离工作台，面向 coding-agent 的终端</p>
+        </li>
+        <li>
+          <p class="skill-label">工程栈</p>
+          <p class="skill-display">Rust · TypeScript · Python · C · Go · CUDA</p>
+        </li>
+        <li>
+          <p class="skill-label">交付</p>
+          <p class="skill-display">桌面 · CLI</p>
+          <p class="skill-note">面向开发者的应用与工具</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer id="contact" class="contact">
+    <div class="wrap">
+      <section id="about" class="education" aria-labelledby="education-heading">
+        <h2 id="education-heading" class="reveal-title">教育</h2>
+        <p>哈尔滨工业大学 · 电子信息 · 研究生 在读</p>
+      </section>
+      <h2 class="contact-heading reveal-title">开始对话</h2>
+      <p class="contact-cta">
+        <a class="scramble magnetic" href="mailto:hitxyshan@icloud.com" aria-label="发邮件到 hitxyshan@icloud.com" data-cursor="写信"><span class="scramble-text" aria-hidden="true">hitxyshan@icloud.com</span></a>
+      </p>
+      <ul class="contact-list">
+        <li><a class="ul" href="https://github.com/BeiZi6" rel="noopener noreferrer">GitHub</a></li>
+        <li><a class="ul" href="https://blog.xyucode.top/" rel="noopener noreferrer">博客</a></li>
+        <li><span class="placeholder">简历 PDF（待上传）</span></li>
+      </ul>
+      <p class="footer-note">徐元山 · Xu Yuanshan · <a class="ul" href="#top">回到顶部</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/SplitText.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
